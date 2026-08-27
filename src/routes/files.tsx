@@ -29,6 +29,13 @@ const files = [
   "Phone Repair Programs",
   "PC Drivers",
   "Phone Testing Tools",
+  "Android TV / Google TV Images",
+  "Rufus (Bootable USB Tool)",
+  "balenaEtcher",
+  "Amlogic USB Burning Tool",
+  "PhoenixSuit / PhoenixUSBPro",
+  "Qualcomm QPST & QFIL",
+  "MediaTek SP Flash Tool",
 ];
 
 function FilesPage() {
