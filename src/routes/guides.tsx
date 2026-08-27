@@ -294,6 +294,23 @@ function GuidesPage() {
               {isOpen && (
                 <div className="border-t border-border/70 px-6 pb-6 pt-4">
                   <div className="mb-4">
+                    <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-primary">
+                      متطلبات قبل البدء
+                    </h3>
+                    <ul className="space-y-2">
+                      {g.requirements.map((req, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-sm leading-relaxed text-foreground"
+                        >
+                          <span className="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary" />
+                          <span>{req}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="mb-4">
                     <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-muted-foreground">
                       الأدوات المطلوبة
                     </h3>
