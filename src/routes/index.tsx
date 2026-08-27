@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, FolderDown, MessagesSquare, ShieldCheck, Wrench, Zap } from "lucide-react";
 import heroImage from "@/assets/hero-repair.jpg";
+import logoAsset from "@/assets/ronitechx-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
