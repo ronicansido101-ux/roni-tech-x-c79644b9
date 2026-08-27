@@ -1,5 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BatteryCharging, Cpu, Droplets, Smartphone, Usb, Wifi } from "lucide-react";
+import { useState } from "react";
+import {
+  BatteryCharging,
+  ChevronDown,
+  Cpu,
+  Droplets,
+  Smartphone,
+  Usb,
+  Wifi,
+  Wrench,
+} from "lucide-react";
 
 export const Route = createFileRoute("/guides")({
   head: () => ({
@@ -20,46 +30,127 @@ export const Route = createFileRoute("/guides")({
   component: GuidesPage,
 });
 
+const levelBadge: Record<string, string> = {
+  مبتدئ: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
+  متوسط: "border-amber-500/30 bg-amber-500/10 text-amber-400",
+  متقدم: "border-rose-500/30 bg-rose-500/10 text-rose-400",
+};
+
 const guides = [
   {
     icon: Smartphone,
     title: "استبدال شاشة الهاتف",
     level: "متوسط",
-    text: "فك الجهاز بأمان، فصل الفليت، تركيب الشاشة الجديدة واختبار اللمس.",
+    summary:
+      "فك الجهاز بأمان، فصل الفليت، تركيب الشاشة الجديدة واختبار اللمس قبل إغلاق الجهاز.",
+    tools: ["مفكات دقيقة (Pentalobe/Phillips)", "بلاستيك فك (Pry tool)", "سشوار صناعي أو iOpener", "شاشة بديلة متوافقة"],
+    steps: [
+      "أطفئ الجهاز تماماً وانتظر 30 ثانية.",
+      "سخّن الحواف بسشوار صناعي على درجة حرارة متوسطة لمدة 2-3 دقائق لتليين اللاصق.",
+      "ادخل أداة الفك البلاستيكية من الزاوية السفلية برفق وتحرك حول الحواف.",
+      "ارفع الشاشة بزاوية 90 درجة مع الحذر من كابلات الفليت.",
+      "افصل بطارية الجهاز أولاً، ثم افصل كابلات الشاشة (LCD وTouch وDigitizer).",
+      "أزل الشاشة القديمة وثبّت الجديدة بالعكس: أوصل الكابلات ثم البطارية.",
+      "شغّل الجهاز واختبر اللمس والألوان والسطوع قبل إغلاق الإطار.",
+      "أغلق الجهاز بلطف واضغط على الحواف حتى يلتصق اللاصق.",
+    ],
+    tips: "لا تستخدم مفك معدنياً حاداً قرب البطارية. تأكد من عدم وجود غبار تحت الشاشة قبل الإغلاق.",
   },
   {
     icon: BatteryCharging,
     title: "تغيير البطارية وحل مشاكل الشحن",
     level: "مبتدئ",
-    text: "قياس استهلاك البطارية، فحص دائرة الشحن، واستبدال البطارية بشكل صحيح.",
+    summary:
+      "قياس استهلاك البطارية، فحص دائرة الشحن، واستبدال البطارية بشكل صحيح دون تلف اللاصق.",
+    tools: ["بطارية بديلة أصلية", "مفك Phillips/Pentalobe", "بلاستيك فك", "كحول إيزوبروبيلي 99%"],
+    steps: [
+      "افحص أولاً: هل المشكلة في الشاحن، الكيبل، أو المنفذ؟ جرّب قطعاً أخرى.",
+      "أطفئ الجهاز وافتح الغطاء الخلفي أو الشاشة حسب طراز الجهاز.",
+      "افصل كابلات الشاشة إذا كانت تعيق الوصول للبطارية.",
+      "أزل اللاصق المطاطي حول البطارية بحذر باستخدام أداة بلاستيكية.",
+      "اسحب ألسنة اللاصق (pull-tabs) ببطء ومتوازياً مع سطح البطارية.",
+      "ضع البطارية الجديدة في مكانها وثبّتها باللاصق المرفق.",
+      "أعد توصيل الكابلات وشغّل الجهاز. اتركه يشحن حتى 100% ثم افحص صحته من الإعدادات.",
+    ],
+    tips: "إذا استمر استنزاف البطارية بسرعة، افحص تطبيقات الخلفية أو استبدل منفذ الشحن أولاً.",
   },
   {
     icon: Usb,
     title: "إصلاح منفذ الشحن (Charging Port)",
     level: "متوسط",
-    text: "تنظيف المنفذ، فحص خطوط البيانات، وطريقة لحام المنفذ الجديد.",
+    summary:
+      "تنظيف المنفظ، فحص خطوط البيانات والشحن، وطريقة لحام المنفذ الجديد على البورد.",
+    tools: ["فرشاة ناعمة + كحول 99%", "مكواة لحام دقيقة", "فليكس (Flex cable) منفذ شحن", "مكبر أو مجهر صغير"],
+    steps: [
+      "افحص المنفذ بالمجهر: هل يوجد غبار أو أتربة أو أطراف معدنية مكسورة؟",
+      "نظف المنفذ بفرشاة جافة أولاً، ثم بقطنة مبللة بالكحول مع تجفيفه جيداً.",
+      "اختبر الجهد: اربط كيبل USB وافحص VBUS وD+/D- بجهاز قياس.",
+      "إذا كان المنفذ مدموراً، افكّ الجهاز واخرج البورد الرئيسي.",
+      "أزل المنفذ القديم بالهوت اير أو محطة لحام متخصصة دون رفع الأطراف المحيطة.",
+      "ثبّت المنفذ الجديد واتأكد من محاذاة الأطراف (pins) بدقة.",
+      "أعد تجميع الجهاز واختبر الشحن ونقل البيانات.",
+    ],
+    tips: "لا تحرك المكواة أكثر من اللازم؛ الحرارة الزائدة تضر بالطبقات الداخلية للبورد.",
   },
   {
     icon: Cpu,
     title: "الفلاش وإعادة تنصيب النظام",
     level: "متقدم",
-    text: "تحضير الفيرموير، الدخول لوضع Download/Fastboot، وتفادي أخطاء الفلاش.",
+    summary:
+      "تحضير الفيرموير، الدخول لوضع Download/Fastboot، وتفادي أخطاء الفلاش الشائعة.",
+    tools: ["كومبيوتر بنظام Windows", "كيبل USB أصلي", "برنامج Odin / SP Flash / Mi Flash حسب الطراز", "فيرموير رسمي متوافق"],
+    steps: [
+      "حمّل الفيرموير الرسمي لطراز الجهاز بالضبط (Model + Region/CSC).",
+      "ثبّت تعريفات USB الخاصة بالشركة (Samsung / Xiaomi / Qualcomm / MTK).",
+      "أطفئ الجهاز، ثم ادخل وضع Download (Samsung) أو Fastboot (Xiaomi/Google) بالضغط على مفاتيح التشغيل + الصوت.",
+      "افتح برنامج الفلاش وتحقق من ظهور المنفذ (COM أو PORT).",
+      "حمّل ملفات الفلاش (AP/BL/CP/CSC أو scatter) بالترتيب الصحيح.",
+      "اضغط Start/Flash وانتظر حتى تظهر رسالة PASS أو Done.",
+      "لا تفصل الكيبل أثناء الفلاش. بعد الانتهاء، سيُعيد الجهاز التشغيل تلقائياً.",
+    ],
+    tips: "تأكد من شحن البطارية فوق 50%. استخدم كيبل USB أصلياً لتجنب انقطاع الاتصال أثناء الفلاش.",
   },
   {
     icon: Wifi,
     title: "أعطال الشبكة والواي فاي",
     level: "متقدم",
-    text: "تشخيص فقدان الشبكة، فحص هوائي الاستقبال، ومعالجة أعطال IMEI.",
+    summary:
+      "تشخيص فقدان الشبكة، فحص هوائي الاستقبال، ومعالجة أعطال IMEI بعد الفلاش.",
+    tools: ["مجهر أو مكبر", "مكواة لحام دقيقة", "ملفات NV/EFS احتياطية", "بوكسات Z3X/UFS حسب الحاجة"],
+    steps: [
+      "تأكد أولاً أن المشكلة ليست برمجية: جرّب إعادة ضبط الشبكة أو تحديث النظام.",
+      "افحص الهوائيات الداخلية (Antenna connectors) وتأكد من توصيلها.",
+      "إذا فُقد IMEI بعد الفلاش، راجع قسم EFS/NV واستعد نسخة احتياطية موثوقة.",
+      "افحص دوائر RF Power Amplifier وTransceiver بالقرب من الهوائي.",
+      "إذا كان العطل في IC الشبكة، استخدم محطة تسخين متخصصة لإعادة اللحام (Reball).",
+      "اختبر الإشارة بعد كل خطوة وقارن القراءات بجهاز سليم من نفس الطراز.",
+    ],
+    tips: "لا تكتب IMEI عشوائياً؛ قد يؤدي ذلك لحظر الجهاز قانونياً في بعض الدول.",
   },
   {
     icon: Droplets,
     title: "إنقاذ الهاتف بعد تعرضه للماء",
     level: "متوسط",
-    text: "خطوات الطوارئ، تنظيف البورد بالألتراسونيك، ومعالجة التأكسد.",
+    summary:
+      "خطوات الطوارئ الأولى، تنظيف البورد بالألتراسونيك، ومعالجة التأكسد قبل فقدان الجهاز.",
+    tools: ["مفكات دقيقة", "كحول إيزوبروبيلي 99%", "حمام ألتراسونيك", "فرشاة أسنان ناعمة", "سليكا جل أو أرز (مؤقت)"],
+    steps: [
+      "أطفئ الجهاز فوراً ولا تحاول تشغيله مرة أخرى.",
+      "أخرج الشريحة وكارت الذاكرة (إن وجد) وجففهم جانباً.",
+      "لا تضع الجهاز في أرز؛ الأرز لا يمتص الرطوبة من الداخل بكفاءة.",
+      "افكّ الجهاز بأسرع وقت ممكن وافصل البطارية.",
+      "انزع البورد وضعه في حمام ألتراسونيك مع كحول 99% لمدة 5-10 دقائق.",
+      "نظف التآكل والأوساخ حول الموصلات بفرشاة ناعمة.",
+      "جفف البورد بالهواء الساخن المنخفض (40-50 درجة) لمدة 30 دقيقة.",
+      "أعد التجميع وشغّل الجهاز. إذا لم يعمل، افحص دوائر الشحن والباور.",
+    ],
+    tips: "كل دقيقة تمر تزيد من احتمالية التأكسد. السرعة في الفك والتنظيف هي العامل الأهم.",
   },
 ];
 
 function GuidesPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <div className="mx-auto w-full max-w-6xl px-4 py-14">
       <h1 className="text-3xl font-extrabold md:text-4xl">
@@ -67,24 +158,91 @@ function GuidesPage() {
       </h1>
       <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
         مجموعة شروحات عملية موجهة للفنيين والمبتدئين، مرتبة حسب نوع العطل ومستوى
-        الصعوبة.
+        الصعوبة. اضغط على أي شرح لعرض الخطوات التفصيلية.
       </p>
 
       <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {guides.map((g) => (
-          <article key={g.title} className="panel p-6">
-            <div className="flex items-center justify-between">
-              <span className="grid size-11 place-items-center rounded-xl bg-primary/15 text-primary ring-1 ring-primary/30">
-                <g.icon className="size-5" />
-              </span>
-              <span className="rounded-full border border-border bg-secondary px-3 py-1 text-xs text-muted-foreground">
-                {g.level}
-              </span>
-            </div>
-            <h2 className="mt-4 text-lg font-bold">{g.title}</h2>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{g.text}</p>
-          </article>
-        ))}
+        {guides.map((g, i) => {
+          const isOpen = openIndex === i;
+          return (
+            <article
+              key={g.title}
+              className={`panel p-0 transition-all duration-300 ${isOpen ? "ring-1 ring-primary/40" : ""}`}
+            >
+              <button
+                type="button"
+                onClick={() => setOpenIndex(isOpen ? null : i)}
+                className="w-full p-6 text-right"
+                aria-expanded={isOpen}
+              >
+                <div className="flex items-center justify-between">
+                  <span className="grid size-11 place-items-center rounded-xl bg-primary/15 text-primary ring-1 ring-primary/30">
+                    <g.icon className="size-5" />
+                  </span>
+                  <span
+                    className={`rounded-full border px-3 py-1 text-xs ${levelBadge[g.level]}`}
+                  >
+                    {g.level}
+                  </span>
+                </div>
+                <h2 className="mt-4 text-lg font-bold">{g.title}</h2>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {g.summary}
+                </p>
+                <div className="mt-4 flex items-center justify-between text-xs text-primary">
+                  <span className="flex items-center gap-1 font-medium">
+                    <Wrench className="size-3.5" />
+                    عرض الخطوات
+                  </span>
+                  <ChevronDown
+                    className={`size-4 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                  />
+                </div>
+              </button>
+
+              {isOpen && (
+                <div className="border-t border-border/70 px-6 pb-6 pt-4">
+                  <div className="mb-4">
+                    <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                      الأدوات المطلوبة
+                    </h3>
+                    <ul className="flex flex-wrap gap-2">
+                      {g.tools.map((tool) => (
+                        <li
+                          key={tool}
+                          className="rounded-lg border border-border bg-secondary px-2.5 py-1 text-xs text-secondary-foreground"
+                        >
+                          {tool}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <h3 className="mb-2 text-xs font-bold uppercase tracking-wide text-muted-foreground">
+                    خطوات العمل
+                  </h3>
+                  <ol className="space-y-2.5">
+                    {g.steps.map((step, idx) => (
+                      <li
+                        key={idx}
+                        className="flex gap-3 text-sm leading-relaxed text-foreground"
+                      >
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary">
+                          {idx + 1}
+                        </span>
+                        <span className="pt-0.5">{step}</span>
+                      </li>
+                    ))}
+                  </ol>
+
+                  <div className="mt-4 rounded-xl border border-primary/20 bg-primary/5 p-3 text-sm leading-relaxed text-primary-foreground/90">
+                    <strong className="text-primary">نصيحة:</strong> {g.tips}
+                  </div>
+                </div>
+              )}
+            </article>
+          );
+        })}
       </div>
     </div>
   );
