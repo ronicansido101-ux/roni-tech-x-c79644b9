@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { BookOpen, FolderDown, MessagesSquare, ShieldCheck, Wrench, Zap } from "lucide-react";
 import heroImage from "@/assets/hero-repair.jpg";
+import logoAsset from "@/assets/ronitechx-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -59,10 +60,15 @@ function Home() {
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
               <Zap className="size-3.5" /> منصة تقنية متخصصة بصيانة الهواتف
             </span>
-            <h1 className="text-4xl font-extrabold leading-[1.2] md:text-5xl">
-              <span className="text-gradient">RONI TECH X</span>
-              <br />
-              مركز التقنية والصيانة
+            <h1 className="space-y-4 text-3xl font-extrabold leading-[1.2] md:text-4xl">
+              <img
+                src={logoAsset.url}
+                alt="شعار RONI TECH X"
+                width={682}
+                height={62}
+                className="h-10 w-auto max-w-full brightness-0 invert drop-shadow-[0_0_20px_color-mix(in_oklab,var(--primary)_55%,transparent)] sm:h-12 md:h-14"
+              />
+              <span className="block">مركز التقنية والصيانة</span>
             </h1>
             <p className="max-w-lg text-base leading-relaxed text-muted-foreground">
               كل ما يحتاجه الفني المحترف: شروحات دقيقة، تعريفات وأدوات موثوقة، وملفات
