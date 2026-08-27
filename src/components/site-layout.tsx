@@ -11,16 +11,16 @@ const navItems = [
   { to: "/contact", label: "تواصل معنا" },
 ] as const;
 
-export function Logo() {
+export function Logo({ className = "h-8 md:h-9" }: { className?: string }) {
   return (
-    <Link to="/" className="flex items-center gap-2">
-      <span className="grid size-9 place-items-center rounded-lg bg-primary/15 text-primary ring-1 ring-primary/40">
-        <Cpu className="size-5" />
-      </span>
-      <span className="text-lg font-extrabold tracking-tight">
-        <span className="text-gradient">RONI TECH</span>
-        <span className="text-foreground"> X</span>
-      </span>
+    <Link to="/" className="flex items-center" aria-label="RONI TECH X">
+      <img
+        src={logoAsset.url}
+        alt="شعار RONI TECH X"
+        width={682}
+        height={62}
+        className={`w-auto ${className} brightness-0 invert drop-shadow-[0_0_12px_color-mix(in_oklab,var(--primary)_60%,transparent)]`}
+      />
     </Link>
   );
 }
