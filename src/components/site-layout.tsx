@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { Menu, X, Cpu, Mail, Send, Phone } from "lucide-react";
+import { Menu, X, Mail, Send, Phone } from "lucide-react";
+import logoAsset from "@/assets/ronitechx-logo.png.asset.json";
 
 const navItems = [
   { to: "/", label: "الرئيسية" },
