@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FilesRouteImport } from './routes/files'
+import { Route as GeneralGuidesRouteImport } from './routes/general-guides'
 import { Route as GuidesRouteImport } from './routes/guides'
 import { Route as QaRouteImport } from './routes/qa'
 
@@ -30,6 +31,11 @@ const FilesRoute = FilesRouteImport.update({
   path: '/files',
   getParentRoute: () => rootRouteImport,
 } as any)
+const GeneralGuidesRoute = GeneralGuidesRouteImport.update({
+  id: '/general-guides',
+  path: '/general-guides',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GuidesRoute = GuidesRouteImport.update({
   id: '/guides',
   path: '/guides',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/files': typeof FilesRoute
+  '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
   '/qa': typeof QaRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/files': typeof FilesRoute
+  '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
   '/qa': typeof QaRoute
 }
@@ -60,21 +68,30 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/files': typeof FilesRoute
+  '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
   '/qa': typeof QaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/files' | '/guides' | '/qa'
+  fullPaths: '/' | '/contact' | '/files' | '/general-guides' | '/guides' | '/qa'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/files' | '/guides' | '/qa'
-  id: '__root__' | '/' | '/contact' | '/files' | '/guides' | '/qa'
+  to: '/' | '/contact' | '/files' | '/general-guides' | '/guides' | '/qa'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/files'
+    | '/general-guides'
+    | '/guides'
+    | '/qa'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   FilesRoute: typeof FilesRoute
+  GeneralGuidesRoute: typeof GeneralGuidesRoute
   GuidesRoute: typeof GuidesRoute
   QaRoute: typeof QaRoute
 }
@@ -102,6 +119,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FilesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/general-guides': {
+      id: '/general-guides'
+      path: '/general-guides'
+      fullPath: '/general-guides'
+      preLoaderRoute: typeof GeneralGuidesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/guides': {
       id: '/guides'
       path: '/guides'
@@ -123,6 +147,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   FilesRoute: FilesRoute,
+  GeneralGuidesRoute: GeneralGuidesRoute,
   GuidesRoute: GuidesRoute,
   QaRoute: QaRoute,
 }
