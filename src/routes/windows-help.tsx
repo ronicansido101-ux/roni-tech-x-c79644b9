@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
+  AlertTriangle,
   Check,
   ChevronDown,
   Copy,
@@ -9,9 +10,8 @@ import {
   RefreshCw,
   ShieldCheck,
   Terminal,
-  Tool,
   UserCircle,
-  Warning,
+  Wrench,
 } from "lucide-react";
 
 export const Route = createFileRoute("/windows-help")({

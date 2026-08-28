@@ -15,6 +15,7 @@ import { Route as FilesRouteImport } from './routes/files'
 import { Route as GeneralGuidesRouteImport } from './routes/general-guides'
 import { Route as GuidesRouteImport } from './routes/guides'
 import { Route as QaRouteImport } from './routes/qa'
+import { Route as WindowsHelpRouteImport } from './routes/windows-help'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -46,6 +47,11 @@ const QaRoute = QaRouteImport.update({
   path: '/qa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WindowsHelpRoute = WindowsHelpRouteImport.update({
+  id: '/windows-help',
+  path: '/windows-help',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
   '/qa': typeof QaRoute
+  '/windows-help': typeof WindowsHelpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
   '/qa': typeof QaRoute
+  '/windows-help': typeof WindowsHelpRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,12 +79,27 @@ export interface FileRoutesById {
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
   '/qa': typeof QaRoute
+  '/windows-help': typeof WindowsHelpRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contact' | '/files' | '/general-guides' | '/guides' | '/qa'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/files'
+    | '/general-guides'
+    | '/guides'
+    | '/qa'
+    | '/windows-help'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contact' | '/files' | '/general-guides' | '/guides' | '/qa'
+  to:
+    | '/'
+    | '/contact'
+    | '/files'
+    | '/general-guides'
+    | '/guides'
+    | '/qa'
+    | '/windows-help'
   id:
     | '__root__'
     | '/'
@@ -85,6 +108,7 @@ export interface FileRouteTypes {
     | '/general-guides'
     | '/guides'
     | '/qa'
+    | '/windows-help'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -94,6 +118,7 @@ export interface RootRouteChildren {
   GeneralGuidesRoute: typeof GeneralGuidesRoute
   GuidesRoute: typeof GuidesRoute
   QaRoute: typeof QaRoute
+  WindowsHelpRoute: typeof WindowsHelpRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -140,6 +165,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/windows-help': {
+      id: '/windows-help'
+      path: '/windows-help'
+      fullPath: '/windows-help'
+      preLoaderRoute: typeof WindowsHelpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -150,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   GeneralGuidesRoute: GeneralGuidesRoute,
   GuidesRoute: GuidesRoute,
   QaRoute: QaRoute,
+  WindowsHelpRoute: WindowsHelpRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
