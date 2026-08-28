@@ -144,7 +144,7 @@ const windowsGuides = [
     tip: "تأكد من توفر مساحة حرة على قرص C: بحد أدنى 10 GB، وأن الجهاز متصل بمصدر طاقة ثابت أثناء تحديثات النظام الكبيرة.",
   },
   {
-    icon: Tool,
+    icon: Wrench,
     title: "أدوات Windows مفيدة",
     category: "أدوات",
     summary:
@@ -188,7 +188,7 @@ function WindowsHelpPage() {
 
       <div className="mb-8 rounded-2xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm leading-relaxed text-amber-200">
         <div className="flex items-start gap-3">
-          <Warning className="mt-0.5 size-5 shrink-0 text-amber-400" />
+          <AlertTriangle className="mt-0.5 size-5 shrink-0 text-amber-400" />
           <div>
             <strong className="block font-bold text-amber-100">تنبيه مهم</strong>
             المحتوى هنا للتعليم الرسمي فقط. لا نقدم أدوات تفعيل غير قانونية أو طرق تجاوز
