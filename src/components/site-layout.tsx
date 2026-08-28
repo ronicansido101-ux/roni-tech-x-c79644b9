@@ -6,6 +6,7 @@ import logoAsset from "@/assets/ronitechx-logo.png.asset.json";
 const navItems = [
   { to: "/", label: "الرئيسية" },
   { to: "/guides", label: "شروحات الصيانة" },
+  { to: "/general-guides", label: "شروحات عامة" },
   { to: "/files", label: "الملفات" },
   { to: "/qa", label: "أسئلة وأجوبة" },
   { to: "/contact", label: "تواصل معنا" },
