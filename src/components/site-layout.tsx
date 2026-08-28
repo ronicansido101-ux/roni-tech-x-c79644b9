@@ -7,6 +7,7 @@ const navItems = [
   { to: "/", label: "الرئيسية" },
   { to: "/guides", label: "شروحات الصيانة" },
   { to: "/general-guides", label: "شروحات عامة" },
+  { to: "/windows-help", label: "Windows Help" },
   { to: "/files", label: "الملفات" },
   { to: "/qa", label: "أسئلة وأجوبة" },
   { to: "/contact", label: "تواصل معنا" },
