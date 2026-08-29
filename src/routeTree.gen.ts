@@ -14,7 +14,9 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FilesRouteImport } from './routes/files'
 import { Route as GeneralGuidesRouteImport } from './routes/general-guides'
 import { Route as GuidesRouteImport } from './routes/guides'
+import { Route as PhoneRouteImport } from './routes/phone'
 import { Route as QaRouteImport } from './routes/qa'
+import { Route as TvRouteImport } from './routes/tv'
 import { Route as WindowsHelpRouteImport } from './routes/windows-help'
 
 const IndexRoute = IndexRouteImport.update({
@@ -42,9 +44,19 @@ const GuidesRoute = GuidesRouteImport.update({
   path: '/guides',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PhoneRoute = PhoneRouteImport.update({
+  id: '/phone',
+  path: '/phone',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QaRoute = QaRouteImport.update({
   id: '/qa',
   path: '/qa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TvRoute = TvRouteImport.update({
+  id: '/tv',
+  path: '/tv',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WindowsHelpRoute = WindowsHelpRouteImport.update({
@@ -59,7 +71,9 @@ export interface FileRoutesByFullPath {
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
+  '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
+  '/tv': typeof TvRoute
   '/windows-help': typeof WindowsHelpRoute
 }
 export interface FileRoutesByTo {
@@ -68,7 +82,9 @@ export interface FileRoutesByTo {
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
+  '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
+  '/tv': typeof TvRoute
   '/windows-help': typeof WindowsHelpRoute
 }
 export interface FileRoutesById {
@@ -78,7 +94,9 @@ export interface FileRoutesById {
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
+  '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
+  '/tv': typeof TvRoute
   '/windows-help': typeof WindowsHelpRoute
 }
 export interface FileRouteTypes {
@@ -89,7 +107,9 @@ export interface FileRouteTypes {
     | '/files'
     | '/general-guides'
     | '/guides'
+    | '/phone'
     | '/qa'
+    | '/tv'
     | '/windows-help'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -98,7 +118,9 @@ export interface FileRouteTypes {
     | '/files'
     | '/general-guides'
     | '/guides'
+    | '/phone'
     | '/qa'
+    | '/tv'
     | '/windows-help'
   id:
     | '__root__'
@@ -107,7 +129,9 @@ export interface FileRouteTypes {
     | '/files'
     | '/general-guides'
     | '/guides'
+    | '/phone'
     | '/qa'
+    | '/tv'
     | '/windows-help'
   fileRoutesById: FileRoutesById
 }
@@ -117,7 +141,9 @@ export interface RootRouteChildren {
   FilesRoute: typeof FilesRoute
   GeneralGuidesRoute: typeof GeneralGuidesRoute
   GuidesRoute: typeof GuidesRoute
+  PhoneRoute: typeof PhoneRoute
   QaRoute: typeof QaRoute
+  TvRoute: typeof TvRoute
   WindowsHelpRoute: typeof WindowsHelpRoute
 }
 
@@ -158,11 +184,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/phone': {
+      id: '/phone'
+      path: '/phone'
+      fullPath: '/phone'
+      preLoaderRoute: typeof PhoneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/qa': {
       id: '/qa'
       path: '/qa'
       fullPath: '/qa'
       preLoaderRoute: typeof QaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tv': {
+      id: '/tv'
+      path: '/tv'
+      fullPath: '/tv'
+      preLoaderRoute: typeof TvRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/windows-help': {
@@ -181,7 +221,9 @@ const rootRouteChildren: RootRouteChildren = {
   FilesRoute: FilesRoute,
   GeneralGuidesRoute: GeneralGuidesRoute,
   GuidesRoute: GuidesRoute,
+  PhoneRoute: PhoneRoute,
   QaRoute: QaRoute,
+  TvRoute: TvRoute,
   WindowsHelpRoute: WindowsHelpRoute,
 }
 export const routeTree = rootRouteImport
