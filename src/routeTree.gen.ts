@@ -17,6 +17,7 @@ import { Route as GuidesRouteImport } from './routes/guides'
 import { Route as PhoneRouteImport } from './routes/phone'
 import { Route as QaRouteImport } from './routes/qa'
 import { Route as TvRouteImport } from './routes/tv'
+import { Route as WindowsRouteImport } from './routes/windows'
 import { Route as WindowsHelpRouteImport } from './routes/windows-help'
 
 const IndexRoute = IndexRouteImport.update({
@@ -59,6 +60,11 @@ const TvRoute = TvRouteImport.update({
   path: '/tv',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WindowsRoute = WindowsRouteImport.update({
+  id: '/windows',
+  path: '/windows',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WindowsHelpRoute = WindowsHelpRouteImport.update({
   id: '/windows-help',
   path: '/windows-help',
@@ -74,6 +80,7 @@ export interface FileRoutesByFullPath {
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
   '/tv': typeof TvRoute
+  '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
 }
 export interface FileRoutesByTo {
@@ -85,6 +92,7 @@ export interface FileRoutesByTo {
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
   '/tv': typeof TvRoute
+  '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
 }
 export interface FileRoutesById {
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
   '/tv': typeof TvRoute
+  '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
 }
 export interface FileRouteTypes {
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
     | '/phone'
     | '/qa'
     | '/tv'
+    | '/windows'
     | '/windows-help'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
     | '/phone'
     | '/qa'
     | '/tv'
+    | '/windows'
     | '/windows-help'
   id:
     | '__root__'
@@ -132,6 +143,7 @@ export interface FileRouteTypes {
     | '/phone'
     | '/qa'
     | '/tv'
+    | '/windows'
     | '/windows-help'
   fileRoutesById: FileRoutesById
 }
@@ -144,6 +156,7 @@ export interface RootRouteChildren {
   PhoneRoute: typeof PhoneRoute
   QaRoute: typeof QaRoute
   TvRoute: typeof TvRoute
+  WindowsRoute: typeof WindowsRoute
   WindowsHelpRoute: typeof WindowsHelpRoute
 }
 
@@ -205,6 +218,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TvRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/windows': {
+      id: '/windows'
+      path: '/windows'
+      fullPath: '/windows'
+      preLoaderRoute: typeof WindowsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/windows-help': {
       id: '/windows-help'
       path: '/windows-help'
@@ -224,6 +244,7 @@ const rootRouteChildren: RootRouteChildren = {
   PhoneRoute: PhoneRoute,
   QaRoute: QaRoute,
   TvRoute: TvRoute,
+  WindowsRoute: WindowsRoute,
   WindowsHelpRoute: WindowsHelpRoute,
 }
 export const routeTree = rootRouteImport
