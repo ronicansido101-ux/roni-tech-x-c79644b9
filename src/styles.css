@@ -46,6 +46,48 @@
 
 :root {
   --radius: 0.9rem;
+  color-scheme: light;
+  --background: oklch(0.995 0 0);
+  --foreground: oklch(0.22 0.02 258);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.02 258);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.02 258);
+  --primary: oklch(0.55 0.19 255);
+  --primary-foreground: oklch(0.99 0 0);
+  --primary-glow: oklch(0.68 0.15 232);
+  --secondary: oklch(0.965 0.008 255);
+  --secondary-foreground: oklch(0.26 0.02 258);
+  --muted: oklch(0.96 0.006 255);
+  --muted-foreground: oklch(0.5 0.02 258);
+  --accent: oklch(0.94 0.03 250);
+  --accent-foreground: oklch(0.24 0.03 258);
+  --destructive: oklch(0.58 0.22 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.9 0.012 255);
+  --input: oklch(0.9 0.012 255);
+  --ring: oklch(0.55 0.19 255);
+  --sidebar: oklch(0.99 0 0);
+  --sidebar-foreground: oklch(0.22 0.02 258);
+  --sidebar-primary: oklch(0.55 0.19 255);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.96 0.006 255);
+  --sidebar-accent-foreground: oklch(0.24 0.03 258);
+  --sidebar-border: oklch(0.9 0.012 255);
+  --sidebar-ring: oklch(0.55 0.19 255);
+
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
+  --gradient-surface: linear-gradient(
+    160deg,
+    color-mix(in oklab, var(--primary) 6%, var(--card)),
+    var(--card)
+  );
+  --shadow-glow: 0 0 40px -12px color-mix(in oklab, var(--primary) 45%, transparent);
+  --shadow-panel: 0 12px 34px -22px oklch(0.3 0.05 258 / 0.55);
+}
+
+.dark {
+  color-scheme: dark;
   --background: oklch(0.16 0.02 258);
   --foreground: oklch(0.97 0.01 250);
   --card: oklch(0.21 0.025 258);
@@ -58,7 +100,7 @@
   --secondary: oklch(0.26 0.03 258);
   --secondary-foreground: oklch(0.95 0.01 250);
   --muted: oklch(0.25 0.025 258);
-  --muted-foreground: oklch(0.7 0.02 255);
+  --muted-foreground: oklch(0.72 0.02 255);
   --accent: oklch(0.3 0.06 250);
   --accent-foreground: oklch(0.97 0.01 250);
   --destructive: oklch(0.6 0.22 25);
@@ -75,7 +117,6 @@
   --sidebar-border: oklch(0.32 0.03 255);
   --sidebar-ring: oklch(0.62 0.19 253);
 
-  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
   --gradient-surface: linear-gradient(
     160deg,
     color-mix(in oklab, var(--primary) 14%, var(--card)),
@@ -85,9 +126,6 @@
   --shadow-panel: 0 20px 50px -25px oklch(0 0 0 / 0.9);
 }
 
-.dark {
-  color-scheme: dark;
-}
 
 @layer base {
   * {
@@ -101,14 +139,15 @@
     background-image:
       radial-gradient(
         60rem 40rem at 85% -10%,
-        color-mix(in oklab, var(--primary) 22%, transparent),
+        color-mix(in oklab, var(--primary) 8%, transparent),
         transparent
       ),
       radial-gradient(
         50rem 35rem at 0% 20%,
-        color-mix(in oklab, var(--primary-glow) 12%, transparent),
+        color-mix(in oklab, var(--primary-glow) 6%, transparent),
         transparent
       );
+
     background-attachment: fixed;
   }
 
