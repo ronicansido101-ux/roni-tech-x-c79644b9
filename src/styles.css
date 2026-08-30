@@ -139,14 +139,15 @@
     background-image:
       radial-gradient(
         60rem 40rem at 85% -10%,
-        color-mix(in oklab, var(--primary) 22%, transparent),
+        color-mix(in oklab, var(--primary) 8%, transparent),
         transparent
       ),
       radial-gradient(
         50rem 35rem at 0% 20%,
-        color-mix(in oklab, var(--primary-glow) 12%, transparent),
+        color-mix(in oklab, var(--primary-glow) 6%, transparent),
         transparent
       );
+
     background-attachment: fixed;
   }
 
