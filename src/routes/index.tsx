@@ -25,25 +25,11 @@ export const Route = createFileRoute("/")({
 });
 
 const cards = [
-  {
-    to: "/phone" as const,
-    icon: Smartphone,
-    title: "PHONE",
-    text: "Custom ROM، TWRP، ADB & Fastboot، وتعريفات أندرويد.",
-  },
-  {
-    to: "/tv" as const,
-    icon: Tv,
-    title: "TV",
-    text: "تطبيقات وأدوات Android TV وشرح إرسال شاشة الهاتف.",
-  },
-  {
-    to: "/windows" as const,
-    icon: Monitor,
-    title: "WINDOWS",
-    text: "تخصيص، مساعدة رسمية، أدوات، أوامر تنظيف و Win + R.",
-  },
+  { to: "/phone" as const, icon: Smartphone, title: "PHONE", key: "phoneText" as const },
+  { to: "/tv" as const, icon: Tv, title: "TV", key: "tvText" as const },
+  { to: "/windows" as const, icon: Monitor, title: "WINDOWS", key: "windowsText" as const },
 ];
+
 
 function Home() {
   const { t } = usePrefs();
