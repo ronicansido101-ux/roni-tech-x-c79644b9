@@ -56,12 +56,12 @@ function Home() {
           className="h-10 w-auto max-w-full brightness-0 dark:invert sm:h-12 md:h-14"
         />
         <h1 className="mt-5 text-3xl font-extrabold leading-tight md:text-4xl">
-          RONI TECH X | مركز التقنية والصيانة
+          {t("heroTitle")}
         </h1>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          منصة عربية خفيفة واحترافية تجمع أدوات وشروحات الهواتف والتلفزيونات والويندوز،
-          مع روابط مصادر رسمية وأوامر جاهزة للنسخ.
+          {t("heroDesc")}
         </p>
+
 
         <div className="panel mt-8 p-4">
           <label className="flex items-center gap-3">
