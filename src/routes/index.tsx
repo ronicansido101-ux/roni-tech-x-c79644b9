@@ -114,7 +114,7 @@ function Home() {
                 <c.icon className="size-5" />
               </span>
               <h3 className="mt-4 text-lg font-bold">{c.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(c.key)}</p>
             </Link>
           ))}
         </div>
