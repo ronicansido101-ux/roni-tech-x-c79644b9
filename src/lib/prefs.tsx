@@ -83,7 +83,14 @@ const dict = {
     noResults: "Eşleşen sonuç yok.",
     latest: "Son eklenenler",
     sections: "Bölümler",
+    heroTitle: "RONI TECH X | Teknoloji ve Onarım Merkezi",
+    heroDesc:
+      "Telefon, TV ve Windows araçlarını ve rehberlerini bir araya getiren hafif ve profesyonel bir platform; resmi kaynaklar ve kopyalanmaya hazır komutlarla.",
+    phoneText: "Custom ROM, TWRP, ADB & Fastboot ve Android sürücüleri.",
+    tvText: "Android TV uygulamaları, araçları ve telefon ekranı yansıtma rehberi.",
+    windowsText: "Özelleştirme, resmi yardım, araçlar, temizlik komutları ve Win + R.",
     theme: "Tema",
+
     language: "Dil",
   },
 } as const;
