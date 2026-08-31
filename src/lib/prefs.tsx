@@ -29,7 +29,14 @@ const dict = {
     noResults: "لا توجد نتائج مطابقة.",
     latest: "آخر الإضافات",
     sections: "الأقسام",
+    heroTitle: "RONI TECH X | مركز التقنية والصيانة",
+    heroDesc:
+      "منصة خفيفة واحترافية تجمع أدوات وشروحات الهواتف والتلفزيونات والويندوز، مع روابط مصادر رسمية وأوامر جاهزة للنسخ.",
+    phoneText: "Custom ROM، TWRP، ADB & Fastboot، وتعريفات أندرويد.",
+    tvText: "تطبيقات وأدوات Android TV وشرح إرسال شاشة الهاتف.",
+    windowsText: "تخصيص، مساعدة رسمية، أدوات، أوامر تنظيف و Win + R.",
     theme: "المظهر",
+
     language: "اللغة",
   },
   en: {
@@ -49,7 +56,14 @@ const dict = {
     noResults: "No matching results.",
     latest: "Latest additions",
     sections: "Sections",
+    heroTitle: "RONI TECH X | Tech & Repair Hub",
+    heroDesc:
+      "A fast, professional platform gathering phone, TV and Windows tools and guides, with official sources and ready-to-copy commands.",
+    phoneText: "Custom ROM, TWRP, ADB & Fastboot, and Android drivers.",
+    tvText: "Android TV apps and tools, plus phone screen casting guide.",
+    windowsText: "Customization, official help, tools, cleanup commands and Win + R.",
     theme: "Theme",
+
     language: "Language",
   },
   tr: {
@@ -69,7 +83,14 @@ const dict = {
     noResults: "Eşleşen sonuç yok.",
     latest: "Son eklenenler",
     sections: "Bölümler",
+    heroTitle: "RONI TECH X | Teknoloji ve Onarım Merkezi",
+    heroDesc:
+      "Telefon, TV ve Windows araçlarını ve rehberlerini bir araya getiren hafif ve profesyonel bir platform; resmi kaynaklar ve kopyalanmaya hazır komutlarla.",
+    phoneText: "Custom ROM, TWRP, ADB & Fastboot ve Android sürücüleri.",
+    tvText: "Android TV uygulamaları, araçları ve telefon ekranı yansıtma rehberi.",
+    windowsText: "Özelleştirme, resmi yardım, araçlar, temizlik komutları ve Win + R.",
     theme: "Tema",
+
     language: "Dil",
   },
 } as const;

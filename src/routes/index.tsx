@@ -25,25 +25,11 @@ export const Route = createFileRoute("/")({
 });
 
 const cards = [
-  {
-    to: "/phone" as const,
-    icon: Smartphone,
-    title: "PHONE",
-    text: "Custom ROM، TWRP، ADB & Fastboot، وتعريفات أندرويد.",
-  },
-  {
-    to: "/tv" as const,
-    icon: Tv,
-    title: "TV",
-    text: "تطبيقات وأدوات Android TV وشرح إرسال شاشة الهاتف.",
-  },
-  {
-    to: "/windows" as const,
-    icon: Monitor,
-    title: "WINDOWS",
-    text: "تخصيص، مساعدة رسمية، أدوات، أوامر تنظيف و Win + R.",
-  },
+  { to: "/phone" as const, icon: Smartphone, title: "PHONE", key: "phoneText" as const },
+  { to: "/tv" as const, icon: Tv, title: "TV", key: "tvText" as const },
+  { to: "/windows" as const, icon: Monitor, title: "WINDOWS", key: "windowsText" as const },
 ];
+
 
 function Home() {
   const { t } = usePrefs();
@@ -70,12 +56,12 @@ function Home() {
           className="h-10 w-auto max-w-full brightness-0 dark:invert sm:h-12 md:h-14"
         />
         <h1 className="mt-5 text-3xl font-extrabold leading-tight md:text-4xl">
-          RONI TECH X | مركز التقنية والصيانة
+          {t("heroTitle")}
         </h1>
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          منصة عربية خفيفة واحترافية تجمع أدوات وشروحات الهواتف والتلفزيونات والويندوز،
-          مع روابط مصادر رسمية وأوامر جاهزة للنسخ.
+          {t("heroDesc")}
         </p>
+
 
         <div className="panel mt-8 p-4">
           <label className="flex items-center gap-3">
@@ -128,7 +114,7 @@ function Home() {
                 <c.icon className="size-5" />
               </span>
               <h3 className="mt-4 text-lg font-bold">{c.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.text}</p>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t(c.key)}</p>
             </Link>
           ))}
         </div>
