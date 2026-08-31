@@ -56,7 +56,14 @@ const dict = {
     noResults: "No matching results.",
     latest: "Latest additions",
     sections: "Sections",
+    heroTitle: "RONI TECH X | Tech & Repair Hub",
+    heroDesc:
+      "A fast, professional platform gathering phone, TV and Windows tools and guides, with official sources and ready-to-copy commands.",
+    phoneText: "Custom ROM, TWRP, ADB & Fastboot, and Android drivers.",
+    tvText: "Android TV apps and tools, plus phone screen casting guide.",
+    windowsText: "Customization, official help, tools, cleanup commands and Win + R.",
     theme: "Theme",
+
     language: "Language",
   },
   tr: {
