@@ -12,6 +12,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteLayout } from "@/components/site-layout";
+import { PrefsProvider } from "@/lib/prefs";
 import { Toaster } from "@/components/ui/sonner";
 
 
@@ -134,11 +135,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <SiteLayout>
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
-      </SiteLayout>
-      <Toaster position="top-center" richColors />
+      <PrefsProvider>
+        <SiteLayout>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+        </SiteLayout>
+        <Toaster position="top-center" richColors />
+      </PrefsProvider>
     </QueryClientProvider>
   );
 }
