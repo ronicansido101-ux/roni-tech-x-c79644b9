@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DocsRouteImport } from './routes/docs'
 import { Route as FilesRouteImport } from './routes/files'
 import { Route as GeneralGuidesRouteImport } from './routes/general-guides'
 import { Route as GuidesRouteImport } from './routes/guides'
 import { Route as PhoneRouteImport } from './routes/phone'
 import { Route as QaRouteImport } from './routes/qa'
+import { Route as RoniAiRouteImport } from './routes/roni-ai'
+import { Route as SecurityRouteImport } from './routes/security'
+import { Route as StatusRouteImport } from './routes/status'
 import { Route as TvRouteImport } from './routes/tv'
 import { Route as WindowsRouteImport } from './routes/windows'
 import { Route as WindowsHelpRouteImport } from './routes/windows-help'
@@ -25,9 +31,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocsRoute = DocsRouteImport.update({
+  id: '/docs',
+  path: '/docs',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FilesRoute = FilesRouteImport.update({
@@ -55,6 +76,21 @@ const QaRoute = QaRouteImport.update({
   path: '/qa',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RoniAiRoute = RoniAiRouteImport.update({
+  id: '/roni-ai',
+  path: '/roni-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatusRoute = StatusRouteImport.update({
+  id: '/status',
+  path: '/status',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TvRoute = TvRouteImport.update({
   id: '/tv',
   path: '/tv',
@@ -73,24 +109,36 @@ const WindowsHelpRoute = WindowsHelpRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/docs': typeof DocsRoute
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
+  '/roni-ai': typeof RoniAiRoute
+  '/security': typeof SecurityRoute
+  '/status': typeof StatusRoute
   '/tv': typeof TvRoute
   '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/docs': typeof DocsRoute
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
+  '/roni-ai': typeof RoniAiRoute
+  '/security': typeof SecurityRoute
+  '/status': typeof StatusRoute
   '/tv': typeof TvRoute
   '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
@@ -98,12 +146,18 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/auth': typeof AuthRoute
+  '/community': typeof CommunityRoute
   '/contact': typeof ContactRoute
+  '/docs': typeof DocsRoute
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
+  '/roni-ai': typeof RoniAiRoute
+  '/security': typeof SecurityRoute
+  '/status': typeof StatusRoute
   '/tv': typeof TvRoute
   '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
@@ -112,36 +166,54 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/auth'
+    | '/community'
     | '/contact'
+    | '/docs'
     | '/files'
     | '/general-guides'
     | '/guides'
     | '/phone'
     | '/qa'
+    | '/roni-ai'
+    | '/security'
+    | '/status'
     | '/tv'
     | '/windows'
     | '/windows-help'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/auth'
+    | '/community'
     | '/contact'
+    | '/docs'
     | '/files'
     | '/general-guides'
     | '/guides'
     | '/phone'
     | '/qa'
+    | '/roni-ai'
+    | '/security'
+    | '/status'
     | '/tv'
     | '/windows'
     | '/windows-help'
   id:
     | '__root__'
     | '/'
+    | '/auth'
+    | '/community'
     | '/contact'
+    | '/docs'
     | '/files'
     | '/general-guides'
     | '/guides'
     | '/phone'
     | '/qa'
+    | '/roni-ai'
+    | '/security'
+    | '/status'
     | '/tv'
     | '/windows'
     | '/windows-help'
@@ -149,12 +221,18 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthRoute: typeof AuthRoute
+  CommunityRoute: typeof CommunityRoute
   ContactRoute: typeof ContactRoute
+  DocsRoute: typeof DocsRoute
   FilesRoute: typeof FilesRoute
   GeneralGuidesRoute: typeof GeneralGuidesRoute
   GuidesRoute: typeof GuidesRoute
   PhoneRoute: typeof PhoneRoute
   QaRoute: typeof QaRoute
+  RoniAiRoute: typeof RoniAiRoute
+  SecurityRoute: typeof SecurityRoute
+  StatusRoute: typeof StatusRoute
   TvRoute: typeof TvRoute
   WindowsRoute: typeof WindowsRoute
   WindowsHelpRoute: typeof WindowsHelpRoute
@@ -169,11 +247,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/docs': {
+      id: '/docs'
+      path: '/docs'
+      fullPath: '/docs'
+      preLoaderRoute: typeof DocsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/files': {
@@ -211,6 +310,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof QaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/roni-ai': {
+      id: '/roni-ai'
+      path: '/roni-ai'
+      fullPath: '/roni-ai'
+      preLoaderRoute: typeof RoniAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/status': {
+      id: '/status'
+      path: '/status'
+      fullPath: '/status'
+      preLoaderRoute: typeof StatusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tv': {
       id: '/tv'
       path: '/tv'
@@ -237,12 +357,18 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthRoute: AuthRoute,
+  CommunityRoute: CommunityRoute,
   ContactRoute: ContactRoute,
+  DocsRoute: DocsRoute,
   FilesRoute: FilesRoute,
   GeneralGuidesRoute: GeneralGuidesRoute,
   GuidesRoute: GuidesRoute,
   PhoneRoute: PhoneRoute,
   QaRoute: QaRoute,
+  RoniAiRoute: RoniAiRoute,
+  SecurityRoute: SecurityRoute,
+  StatusRoute: StatusRoute,
   TvRoute: TvRoute,
   WindowsRoute: WindowsRoute,
   WindowsHelpRoute: WindowsHelpRoute,

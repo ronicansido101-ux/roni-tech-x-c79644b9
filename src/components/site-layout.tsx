@@ -11,8 +11,14 @@ const navItems: { to: string; key: TKey }[] = [
   { to: "/windows", key: "windows" },
   { to: "/files", key: "files" },
   { to: "/qa", key: "qa" },
+  { to: "/roni-ai", key: "ai" },
+  { to: "/docs", key: "docs" },
+  { to: "/community", key: "community" },
+  { to: "/status", key: "status" },
+  { to: "/security", key: "security" },
   { to: "/contact", key: "contact" },
 ];
+
 
 const langs: Lang[] = ["ar", "en", "tr"];
 
