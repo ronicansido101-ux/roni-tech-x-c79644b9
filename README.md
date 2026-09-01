@@ -1,52 +1,100 @@
-# RONI TECH X Hub
+# 🚀 RONI TECH X Hub
 
-Create a website called "RONI TECH X | مركز التقنية والصيانة".
+![RONI TECH X](https://img.shields.io/badge/RONI%20TECH%20X-Technology%20%7C%20Repair%20%7C%20AI-blue)
 
-Design:
-- Modern black and blue technology style.
-- Use logo text: RONI TECH X.
-- Responsive design for phone and computer.
-- Make it look like a professional phone repair technology platform.
+RONI TECH X is a modern technology platform for phone repair, Windows support, drivers, tools, troubleshooting and AI-powered technical assistance.
 
-Pages:
-1. Home
-2. Phone Repair Guides
-3. Files
-4. Questions & Answers
-5. Contact
+🌐 Website:
+https://ronitechx.lovable.app
 
-Files page:
-Show only file names for now:
-- Samsung USB Driver
-- Xiaomi USB Driver
-- Android Tools
-- ADB & Fastboot Tools
-- Firmware Files
-- Phone Repair Programs
-- PC Drivers
-- Phone Testing Tools
+---
 
-Remove the Lessons section.
+## ✨ Features
 
-Use a modern UI with clean navigation and Arabic support (RTL).
+- 📱 Phone Repair Guides
+- 💻 Windows Support & Customization
+- 🔧 Android Drivers and ADB & Fastboot Tools
+- 📦 Technical Files & Resources
+- 🤖 RONI AI Technical Assistant
+- ❓ Questions & Answers
+- 🌍 Arabic RTL Support
+- 🇬🇧 English Support
+- 🇹🇷 Türkçe Support
+- 🌙 Modern Dark Technology Design
+- 📱💻 Responsive for Mobile and Desktop
 
-This project was built with [Lovable](https://lovable.dev).
+---
 
-## Build with Lovable
+## 📂 Sections
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/74f7e426-778c-4ffa-84d5-d4f97e224227).
+| Section | Description |
+|---|---|
+| 📱 Phone Repair | Guides and troubleshooting |
+| 📦 Files | Drivers, tools and resources |
+| 💻 Windows | Windows help and customization |
+| ❓ Q&A | Technical questions and answers |
+| 🤖 RONI AI | AI-powered support |
+| 📞 Contact | Communication and feedback |
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+---
 
-## Development
+## 🛠️ Technologies
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Built with:
 
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+- Lovable
+- React
+- TypeScript
+- Modern UI Components
+- Responsive Design
+
+---
+
+## 🚀 Project Status
+
+🟢 Active Development
+
+New features, tools and improvements will be added continuously.
+
+---
+
+## 🤖 RONI AI
+
+RONI AI helps users solve technical problems by providing organized troubleshooting assistance for:
+
+- Phones
+- Computers
+- Windows
+- Software issues
+- Drivers
+
+---
+
+## 📌 Future Plans
+
+- More repair guides
+- More technical files
+- Community features
+- Advanced AI assistance
+- User improvements
+
+---
+
+## 💙 Support
+
+If you like RONI TECH X, consider giving this repository a ⭐ Star.
+
+Your support helps improve the project.
+
+---
+
+## 📞 Contact
+
+Visit the official website:
+
+https://ronitechx.lovable.app
+
+---
+
+**RONI TECH X**  
+Technology • Repair • Tools • AI 🔧💻🤖
