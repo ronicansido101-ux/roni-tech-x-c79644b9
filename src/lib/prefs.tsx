@@ -38,6 +38,14 @@ const dict = {
     theme: "المظهر",
 
     language: "اللغة",
+    docs: "الدليل",
+    community: "المجتمع",
+    security: "الأمان والخصوصية",
+    status: "حالة المشروع",
+    ai: "RONI AI",
+    signIn: "تسجيل الدخول",
+    signOut: "تسجيل الخروج",
+    account: "حسابي",
   },
   en: {
     home: "Home",
@@ -65,6 +73,14 @@ const dict = {
     theme: "Theme",
 
     language: "Language",
+    docs: "Docs",
+    community: "Community",
+    security: "Security & Privacy",
+    status: "Project Status",
+    ai: "RONI AI",
+    signIn: "Sign in",
+    signOut: "Sign out",
+    account: "Account",
   },
   tr: {
     home: "Ana Sayfa",
@@ -92,6 +108,14 @@ const dict = {
     theme: "Tema",
 
     language: "Dil",
+    docs: "Dokümanlar",
+    community: "Topluluk",
+    security: "Güvenlik ve Gizlilik",
+    status: "Proje Durumu",
+    ai: "RONI AI",
+    signIn: "Giriş yap",
+    signOut: "Çıkış yap",
+    account: "Hesabım",
   },
 } as const;
 
