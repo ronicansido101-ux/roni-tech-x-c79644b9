@@ -112,6 +112,7 @@ function Controls() {
       >
         {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
       </button>
+      <AuthControl />
     </div>
   );
 }
