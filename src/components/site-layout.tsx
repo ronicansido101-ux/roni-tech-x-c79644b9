@@ -37,10 +37,52 @@ export function Logo({ className = "h-8 md:h-9" }: { className?: string }) {
   );
 }
 
+function AuthControl() {
+  const { t } = usePrefs();
+  const { user, loading, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  if (loading) {
+    return <div className="h-9 w-24 animate-pulse rounded-lg border border-border bg-secondary" />;
+  }
+
+  if (!user) {
+    return (
+      <Link
+        to="/auth"
+        className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-bold text-primary-foreground transition-opacity hover:opacity-90"
+      >
+        <LogIn className="size-4" /> {t("signIn")}
+      </Link>
+    );
+  }
+
+  return (
+    <div className="flex items-center gap-1.5">
+      <span
+        dir="ltr"
+        className="hidden max-w-[140px] truncate text-xs font-medium text-muted-foreground xl:inline"
+      >
+        {user.email}
+      </span>
+      <button
+        type="button"
+        onClick={async () => {
+          await signOut();
+          navigate({ to: "/", replace: true });
+        }}
+        className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-secondary px-3 py-2 text-xs font-bold text-foreground transition-colors hover:bg-accent"
+      >
+        <LogOut className="size-4" /> {t("signOut")}
+      </button>
+    </div>
+  );
+}
+
 function Controls() {
   const { lang, setLang, theme, setTheme, t } = usePrefs();
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex flex-wrap items-center gap-2">
       <div
         className="flex items-center gap-0.5 rounded-lg border border-border bg-secondary p-0.5"
         aria-label={t("language")}
