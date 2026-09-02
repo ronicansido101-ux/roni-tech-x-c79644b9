@@ -44,7 +44,7 @@ const kinds = [
 ];
 
 function Community() {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [rows, setRows] = useState<Row[]>([]);
   const [kind, setKind] = useState("suggestion");
   const [title, setTitle] = useState("");
@@ -108,7 +108,13 @@ function Community() {
 
       <div className="mt-8 grid gap-6 lg:grid-cols-[380px_1fr]">
         <div className="panel h-fit p-5">
-          {user ? (
+          {authLoading ? (
+            <div className="space-y-3" aria-busy="true">
+              <div className="h-8 animate-pulse rounded-lg bg-secondary" />
+              <div className="h-10 animate-pulse rounded-xl bg-secondary" />
+              <div className="h-28 animate-pulse rounded-xl bg-secondary" />
+            </div>
+          ) : user ? (
             <form onSubmit={submit} className="space-y-3">
               <div className="flex flex-wrap gap-2">
                 {kinds.map((k) => (
