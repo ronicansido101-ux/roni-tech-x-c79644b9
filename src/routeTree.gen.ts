@@ -17,6 +17,7 @@ import { Route as DocsRouteImport } from './routes/docs'
 import { Route as FilesRouteImport } from './routes/files'
 import { Route as GeneralGuidesRouteImport } from './routes/general-guides'
 import { Route as GuidesRouteImport } from './routes/guides'
+import { Route as PcAppsRouteImport } from './routes/pc-apps'
 import { Route as PhoneRouteImport } from './routes/phone'
 import { Route as QaRouteImport } from './routes/qa'
 import { Route as RoniAiRouteImport } from './routes/roni-ai'
@@ -25,6 +26,7 @@ import { Route as StatusRouteImport } from './routes/status'
 import { Route as TvRouteImport } from './routes/tv'
 import { Route as WindowsRouteImport } from './routes/windows'
 import { Route as WindowsHelpRouteImport } from './routes/windows-help'
+import { Route as WindowsInstallRouteImport } from './routes/windows-install'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -64,6 +66,11 @@ const GeneralGuidesRoute = GeneralGuidesRouteImport.update({
 const GuidesRoute = GuidesRouteImport.update({
   id: '/guides',
   path: '/guides',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PcAppsRoute = PcAppsRouteImport.update({
+  id: '/pc-apps',
+  path: '/pc-apps',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PhoneRoute = PhoneRouteImport.update({
@@ -106,6 +113,11 @@ const WindowsHelpRoute = WindowsHelpRouteImport.update({
   path: '/windows-help',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WindowsInstallRoute = WindowsInstallRouteImport.update({
+  id: '/windows-install',
+  path: '/windows-install',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -116,6 +128,7 @@ export interface FileRoutesByFullPath {
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
+  '/pc-apps': typeof PcAppsRoute
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
   '/roni-ai': typeof RoniAiRoute
@@ -124,6 +137,7 @@ export interface FileRoutesByFullPath {
   '/tv': typeof TvRoute
   '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
+  '/windows-install': typeof WindowsInstallRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -134,6 +148,7 @@ export interface FileRoutesByTo {
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
+  '/pc-apps': typeof PcAppsRoute
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
   '/roni-ai': typeof RoniAiRoute
@@ -142,6 +157,7 @@ export interface FileRoutesByTo {
   '/tv': typeof TvRoute
   '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
+  '/windows-install': typeof WindowsInstallRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -153,6 +169,7 @@ export interface FileRoutesById {
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
+  '/pc-apps': typeof PcAppsRoute
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
   '/roni-ai': typeof RoniAiRoute
@@ -161,6 +178,7 @@ export interface FileRoutesById {
   '/tv': typeof TvRoute
   '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
+  '/windows-install': typeof WindowsInstallRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -173,6 +191,7 @@ export interface FileRouteTypes {
     | '/files'
     | '/general-guides'
     | '/guides'
+    | '/pc-apps'
     | '/phone'
     | '/qa'
     | '/roni-ai'
@@ -181,6 +200,7 @@ export interface FileRouteTypes {
     | '/tv'
     | '/windows'
     | '/windows-help'
+    | '/windows-install'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -191,6 +211,7 @@ export interface FileRouteTypes {
     | '/files'
     | '/general-guides'
     | '/guides'
+    | '/pc-apps'
     | '/phone'
     | '/qa'
     | '/roni-ai'
@@ -199,6 +220,7 @@ export interface FileRouteTypes {
     | '/tv'
     | '/windows'
     | '/windows-help'
+    | '/windows-install'
   id:
     | '__root__'
     | '/'
@@ -209,6 +231,7 @@ export interface FileRouteTypes {
     | '/files'
     | '/general-guides'
     | '/guides'
+    | '/pc-apps'
     | '/phone'
     | '/qa'
     | '/roni-ai'
@@ -217,6 +240,7 @@ export interface FileRouteTypes {
     | '/tv'
     | '/windows'
     | '/windows-help'
+    | '/windows-install'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -228,6 +252,7 @@ export interface RootRouteChildren {
   FilesRoute: typeof FilesRoute
   GeneralGuidesRoute: typeof GeneralGuidesRoute
   GuidesRoute: typeof GuidesRoute
+  PcAppsRoute: typeof PcAppsRoute
   PhoneRoute: typeof PhoneRoute
   QaRoute: typeof QaRoute
   RoniAiRoute: typeof RoniAiRoute
@@ -236,6 +261,7 @@ export interface RootRouteChildren {
   TvRoute: typeof TvRoute
   WindowsRoute: typeof WindowsRoute
   WindowsHelpRoute: typeof WindowsHelpRoute
+  WindowsInstallRoute: typeof WindowsInstallRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -296,6 +322,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GuidesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pc-apps': {
+      id: '/pc-apps'
+      path: '/pc-apps'
+      fullPath: '/pc-apps'
+      preLoaderRoute: typeof PcAppsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/phone': {
       id: '/phone'
       path: '/phone'
@@ -352,6 +385,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WindowsHelpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/windows-install': {
+      id: '/windows-install'
+      path: '/windows-install'
+      fullPath: '/windows-install'
+      preLoaderRoute: typeof WindowsInstallRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -364,6 +404,7 @@ const rootRouteChildren: RootRouteChildren = {
   FilesRoute: FilesRoute,
   GeneralGuidesRoute: GeneralGuidesRoute,
   GuidesRoute: GuidesRoute,
+  PcAppsRoute: PcAppsRoute,
   PhoneRoute: PhoneRoute,
   QaRoute: QaRoute,
   RoniAiRoute: RoniAiRoute,
@@ -372,6 +413,7 @@ const rootRouteChildren: RootRouteChildren = {
   TvRoute: TvRoute,
   WindowsRoute: WindowsRoute,
   WindowsHelpRoute: WindowsHelpRoute,
+  WindowsInstallRoute: WindowsInstallRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

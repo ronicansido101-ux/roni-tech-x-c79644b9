@@ -46,6 +46,9 @@ const dict = {
     signIn: "تسجيل الدخول",
     signOut: "تسجيل الخروج",
     account: "حسابي",
+    pcApps: "برامج الكمبيوتر",
+    winInstall: "تثبيت Windows",
+    androidCustom: "تخصيص أندرويد",
   },
   en: {
     home: "Home",
@@ -81,6 +84,9 @@ const dict = {
     signIn: "Sign in",
     signOut: "Sign out",
     account: "Account",
+    pcApps: "PC Apps",
+    winInstall: "Windows Setup",
+    androidCustom: "Android Customization",
   },
   tr: {
     home: "Ana Sayfa",
@@ -116,6 +122,9 @@ const dict = {
     signIn: "Giriş yap",
     signOut: "Çıkış yap",
     account: "Hesabım",
+    pcApps: "PC Uygulamaları",
+    winInstall: "Windows Kurulumu",
+    androidCustom: "Android Özelleştirme",
   },
 } as const;
 
