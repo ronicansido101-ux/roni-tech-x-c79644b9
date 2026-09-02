@@ -1,8 +1,9 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
-import { Menu, X, Mail, Clock, User, Moon, Sun, Languages } from "lucide-react";
+import { Menu, X, Mail, Clock, User, Moon, Sun, Languages, LogIn, LogOut } from "lucide-react";
 import logoAsset from "@/assets/ronitechx-logo.png.asset.json";
 import { usePrefs, type Lang, type TKey } from "@/lib/prefs";
+import { useAuth } from "@/hooks/use-auth";
 
 const navItems: { to: string; key: TKey }[] = [
   { to: "/", key: "home" },
