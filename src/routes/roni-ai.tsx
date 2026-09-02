@@ -142,6 +142,7 @@ function RoniAi() {
           {!user && (
             <Link
               to="/auth"
+              search={{ redirect: "/roni-ai" }}
               className="rounded-xl bg-primary px-3 py-2 text-xs font-bold text-primary-foreground"
             >
               سجّل الدخول لحفظ المحادثات

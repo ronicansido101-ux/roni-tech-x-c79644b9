@@ -6,7 +6,16 @@ import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
 import { useAuth } from "@/hooks/use-auth";
 
+function safePath(value: unknown): string {
+  return typeof value === "string" && value.startsWith("/") && !value.startsWith("//")
+    ? value
+    : "/roni-ai";
+}
+
 export const Route = createFileRoute("/auth")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    redirect: safePath(search["redirect"]),
+  }),
   head: () => ({
     meta: [
       { title: "تسجيل الدخول | RONI TECH X" },
@@ -29,12 +38,14 @@ function AuthPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const navigate = useNavigate();
+  const { redirect } = Route.useSearch();
 
+  // Already signed in (or just signed in): never ask again.
   useEffect(() => {
-    if (user) navigate({ to: "/roni-ai" });
-  }, [user, navigate]);
+    if (!loading && user) navigate({ to: redirect, replace: true });
+  }, [user, loading, redirect, navigate]);
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -48,7 +59,7 @@ function AuthPage() {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: `${window.location.origin}/roni-ai` },
+          options: { emailRedirectTo: `${window.location.origin}${redirect}` },
         });
         if (error) throw error;
         toast.success("تم إنشاء الحساب");
@@ -69,7 +80,7 @@ function AuthPage() {
       return;
     }
     if (result.redirected) return;
-    navigate({ to: "/roni-ai" });
+    navigate({ to: redirect, replace: true });
   }
 
   return (
