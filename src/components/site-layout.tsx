@@ -50,6 +50,7 @@ function AuthControl() {
     return (
       <Link
         to="/auth"
+        search={{ redirect: typeof window !== "undefined" ? window.location.pathname : "/roni-ai" }}
         className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-xs font-bold text-primary-foreground transition-opacity hover:opacity-90"
       >
         <LogIn className="size-4" /> {t("signIn")}

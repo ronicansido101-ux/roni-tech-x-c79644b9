@@ -158,6 +158,7 @@ function Community() {
               <p>سجّل الدخول لتتمكن من نشر ملاحظة أو اقتراح.</p>
               <Link
                 to="/auth"
+                search={{ redirect: "/community" }}
                 className="inline-flex rounded-xl bg-primary px-4 py-2 text-sm font-bold text-primary-foreground"
               >
                 تسجيل الدخول
