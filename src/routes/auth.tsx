@@ -59,7 +59,7 @@ function AuthPage() {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: `${window.location.origin}/roni-ai` },
+          options: { emailRedirectTo: `${window.location.origin}${redirect}` },
         });
         if (error) throw error;
         toast.success("تم إنشاء الحساب");
@@ -80,7 +80,7 @@ function AuthPage() {
       return;
     }
     if (result.redirected) return;
-    navigate({ to: "/roni-ai" });
+    navigate({ to: redirect, replace: true });
   }
 
   return (
