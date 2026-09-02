@@ -6,7 +6,16 @@ import { supabase } from "@/integrations/supabase/client";
 import { lovable } from "@/integrations/lovable/index";
 import { useAuth } from "@/hooks/use-auth";
 
+function safePath(value: unknown): string {
+  return typeof value === "string" && value.startsWith("/") && !value.startsWith("//")
+    ? value
+    : "/roni-ai";
+}
+
 export const Route = createFileRoute("/auth")({
+  validateSearch: (search: Record<string, unknown>) => ({
+    redirect: safePath(search["redirect"]),
+  }),
   head: () => ({
     meta: [
       { title: "تسجيل الدخول | RONI TECH X" },
