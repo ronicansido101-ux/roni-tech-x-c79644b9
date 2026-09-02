@@ -17,6 +17,7 @@ import { Route as DocsRouteImport } from './routes/docs'
 import { Route as FilesRouteImport } from './routes/files'
 import { Route as GeneralGuidesRouteImport } from './routes/general-guides'
 import { Route as GuidesRouteImport } from './routes/guides'
+import { Route as PcAppsRouteImport } from './routes/pc-apps'
 import { Route as PhoneRouteImport } from './routes/phone'
 import { Route as QaRouteImport } from './routes/qa'
 import { Route as RoniAiRouteImport } from './routes/roni-ai'
@@ -64,6 +65,11 @@ const GeneralGuidesRoute = GeneralGuidesRouteImport.update({
 const GuidesRoute = GuidesRouteImport.update({
   id: '/guides',
   path: '/guides',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PcAppsRoute = PcAppsRouteImport.update({
+  id: '/pc-apps',
+  path: '/pc-apps',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PhoneRoute = PhoneRouteImport.update({
@@ -116,6 +122,7 @@ export interface FileRoutesByFullPath {
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
+  '/pc-apps': typeof PcAppsRoute
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
   '/roni-ai': typeof RoniAiRoute
@@ -134,6 +141,7 @@ export interface FileRoutesByTo {
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
+  '/pc-apps': typeof PcAppsRoute
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
   '/roni-ai': typeof RoniAiRoute
@@ -153,6 +161,7 @@ export interface FileRoutesById {
   '/files': typeof FilesRoute
   '/general-guides': typeof GeneralGuidesRoute
   '/guides': typeof GuidesRoute
+  '/pc-apps': typeof PcAppsRoute
   '/phone': typeof PhoneRoute
   '/qa': typeof QaRoute
   '/roni-ai': typeof RoniAiRoute
@@ -173,6 +182,7 @@ export interface FileRouteTypes {
     | '/files'
     | '/general-guides'
     | '/guides'
+    | '/pc-apps'
     | '/phone'
     | '/qa'
     | '/roni-ai'
@@ -191,6 +201,7 @@ export interface FileRouteTypes {
     | '/files'
     | '/general-guides'
     | '/guides'
+    | '/pc-apps'
     | '/phone'
     | '/qa'
     | '/roni-ai'
@@ -209,6 +220,7 @@ export interface FileRouteTypes {
     | '/files'
     | '/general-guides'
     | '/guides'
+    | '/pc-apps'
     | '/phone'
     | '/qa'
     | '/roni-ai'
@@ -228,6 +240,7 @@ export interface RootRouteChildren {
   FilesRoute: typeof FilesRoute
   GeneralGuidesRoute: typeof GeneralGuidesRoute
   GuidesRoute: typeof GuidesRoute
+  PcAppsRoute: typeof PcAppsRoute
   PhoneRoute: typeof PhoneRoute
   QaRoute: typeof QaRoute
   RoniAiRoute: typeof RoniAiRoute
@@ -294,6 +307,13 @@ declare module '@tanstack/react-router' {
       path: '/guides'
       fullPath: '/guides'
       preLoaderRoute: typeof GuidesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pc-apps': {
+      id: '/pc-apps'
+      path: '/pc-apps'
+      fullPath: '/pc-apps'
+      preLoaderRoute: typeof PcAppsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/phone': {
@@ -364,6 +384,7 @@ const rootRouteChildren: RootRouteChildren = {
   FilesRoute: FilesRoute,
   GeneralGuidesRoute: GeneralGuidesRoute,
   GuidesRoute: GuidesRoute,
+  PcAppsRoute: PcAppsRoute,
   PhoneRoute: PhoneRoute,
   QaRoute: QaRoute,
   RoniAiRoute: RoniAiRoute,
