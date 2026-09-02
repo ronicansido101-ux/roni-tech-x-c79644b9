@@ -26,6 +26,7 @@ import { Route as StatusRouteImport } from './routes/status'
 import { Route as TvRouteImport } from './routes/tv'
 import { Route as WindowsRouteImport } from './routes/windows'
 import { Route as WindowsHelpRouteImport } from './routes/windows-help'
+import { Route as WindowsInstallRouteImport } from './routes/windows-install'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -112,6 +113,11 @@ const WindowsHelpRoute = WindowsHelpRouteImport.update({
   path: '/windows-help',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WindowsInstallRoute = WindowsInstallRouteImport.update({
+  id: '/windows-install',
+  path: '/windows-install',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -131,6 +137,7 @@ export interface FileRoutesByFullPath {
   '/tv': typeof TvRoute
   '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
+  '/windows-install': typeof WindowsInstallRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -150,6 +157,7 @@ export interface FileRoutesByTo {
   '/tv': typeof TvRoute
   '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
+  '/windows-install': typeof WindowsInstallRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -170,6 +178,7 @@ export interface FileRoutesById {
   '/tv': typeof TvRoute
   '/windows': typeof WindowsRoute
   '/windows-help': typeof WindowsHelpRoute
+  '/windows-install': typeof WindowsInstallRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -191,6 +200,7 @@ export interface FileRouteTypes {
     | '/tv'
     | '/windows'
     | '/windows-help'
+    | '/windows-install'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -210,6 +220,7 @@ export interface FileRouteTypes {
     | '/tv'
     | '/windows'
     | '/windows-help'
+    | '/windows-install'
   id:
     | '__root__'
     | '/'
@@ -229,6 +240,7 @@ export interface FileRouteTypes {
     | '/tv'
     | '/windows'
     | '/windows-help'
+    | '/windows-install'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -249,6 +261,7 @@ export interface RootRouteChildren {
   TvRoute: typeof TvRoute
   WindowsRoute: typeof WindowsRoute
   WindowsHelpRoute: typeof WindowsHelpRoute
+  WindowsInstallRoute: typeof WindowsInstallRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -372,6 +385,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WindowsHelpRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/windows-install': {
+      id: '/windows-install'
+      path: '/windows-install'
+      fullPath: '/windows-install'
+      preLoaderRoute: typeof WindowsInstallRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -393,6 +413,7 @@ const rootRouteChildren: RootRouteChildren = {
   TvRoute: TvRoute,
   WindowsRoute: WindowsRoute,
   WindowsHelpRoute: WindowsHelpRoute,
+  WindowsInstallRoute: WindowsInstallRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
